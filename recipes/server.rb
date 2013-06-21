@@ -155,6 +155,8 @@ else
     service_name node['mysql']['service_name']
     if node['mysql']['use_upstart']
       provider Chef::Provider::Service::Upstart
+    else
+      provider node['mysql']['service_provider']
     end
     supports :status => true, :restart => true, :reload => true
     action :enable
