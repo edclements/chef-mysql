@@ -44,6 +44,7 @@ if (node.attribute?('ec2') && ! FileTest.directory?(node['mysql']['ec2_path']))
   end
 
   service "mysql" do
+    provider node['mysql']['service_provider']
     action :start
   end
 
